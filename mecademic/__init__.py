@@ -23,7 +23,7 @@ class MecaRobot:
 
         self._monitor_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-        self.__log('Connecting to robot %s:%i' % (host, control_port))
+        print('Connecting to robot %s:%i' % (host, control_port))
 
         self._control_sock.connect((host, control_port))
         self._monitor_sock.connect((host, monitor_port))
@@ -32,9 +32,10 @@ class MecaRobot:
         self.monitor_thread.start()
 
         self.monitor_handler = None
+        self.log_handler = None
 
-        self.__log('Waiting for welcome message...')
-        self.__log(self.__recv_str())
+        print('Waiting for welcome message...')
+        self.__log('in', self.__recv_str())
 
         # Reset errors, send activate robot and read confirmation
         self._control_sock.settimeout(10)
@@ -60,9 +61,13 @@ class MecaRobot:
                     self.monitor_handler(code, [value1, value2, value3, value4, value5, value6])
 
 
-    def __log(self, *args):
-        print('[MecaRobot]', *args)
-        sys.stdout.flush()
+    def __log(self, direction, message):
+        if self.log_handler:
+            self.log_handler(direction, message)
+        # if direction
+        # print('--> %s' % recv)
+        # print('[MecaRobot]', *args)
+        # sys.stdout.flush()
 
     def __send_str(self, msg):
         sent = self._control_sock.send(bytes(msg + '\0', 'ascii'))
@@ -84,14 +89,14 @@ class MecaRobot:
         else:
             str_send = cmd + '(' + str(values) + ')'
 
-        # self.__log('out', str_send)
+        self.__log('out', str_send)
         sys.stdout.flush()
 
         # send command to robot
         self.__send_str(str_send)
         if sync:
             recv = self.__recv_str()
-            self.__log('--> %s' % recv)
+            self.__log('in', recv)
             sys.stdout.flush()
             return recv
 

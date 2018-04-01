@@ -10,7 +10,7 @@ home = [0.0014, 0.0, 0.0, 0.0, 0.0, 0.0]
 away1 = [29.868040, 27.122770, -21.334730, -28.940260, 49.864250, 39.713300]
 away2 = [-29.868040, -27.122770, 21.334730, 28.940260, -49.864250, -39.713300]
 away_var = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-robot.run('SetJointVel', 25, True)
+robot.run('set_joint_vel', 25, True)
 
 robot.run('MoveJoints', home, True)
 robot.run('MoveJoints', away1, True)

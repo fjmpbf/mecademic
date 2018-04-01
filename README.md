@@ -6,4 +6,3 @@ This demo is a work in progress and requires:
 - PyQt5
 
 If you change `design.ui` then run `pyuic5 design.ui -o design.py` to update `design.py`.
-

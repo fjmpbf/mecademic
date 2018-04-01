@@ -20,8 +20,8 @@
    <widget class="QPushButton" name="pbUp">
     <property name="geometry">
      <rect>
-      <x>660</x>
-      <y>580</y>
+      <x>400</x>
+      <y>600</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -33,8 +33,8 @@
    <widget class="QPushButton" name="pbDown">
     <property name="geometry">
      <rect>
-      <x>660</x>
-      <y>540</y>
+      <x>400</x>
+      <y>630</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -46,8 +46,8 @@
    <widget class="QTableWidget" name="tableWidget">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>450</y>
+      <x>20</x>
+      <y>480</y>
       <width>371</width>
       <height>192</height>
      </rect>
@@ -181,17 +181,20 @@
      </property>
     </item>
    </widget>
-   <widget class="QTabWidget" name="tabJogging">
+   <widget class="QTabWidget" name="tabCoord">
     <property name="geometry">
      <rect>
-      <x>500</x>
-      <y>20</y>
+      <x>510</x>
+      <y>10</y>
       <width>281</width>
-      <height>351</height>
+      <height>451</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(255, 246, 229)</string>
+    </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab_1">
      <attribute name="title">
@@ -200,21 +203,21 @@
      <widget class="QLabel" name="lblAngSpeedValue">
       <property name="geometry">
        <rect>
-        <x>140</x>
-        <y>10</y>
+        <x>130</x>
+        <y>340</y>
         <width>21</width>
         <height>20</height>
        </rect>
       </property>
       <property name="text">
-       <string>1</string>
+       <string>25</string>
       </property>
      </widget>
      <widget class="QLabel" name="lblAngSpeed">
       <property name="geometry">
        <rect>
-        <x>40</x>
-        <y>10</y>
+        <x>30</x>
+        <y>340</y>
         <width>91</width>
         <height>20</height>
        </rect>
@@ -226,11 +229,23 @@
      <widget class="QSlider" name="sldAngSpeedValue">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>30</y>
+        <x>10</x>
+        <y>360</y>
         <width>241</width>
         <height>22</height>
        </rect>
+      </property>
+      <property name="minimum">
+       <number>1</number>
+      </property>
+      <property name="maximum">
+       <number>100</number>
+      </property>
+      <property name="sliderPosition">
+       <number>25</number>
+      </property>
+      <property name="tracking">
+       <bool>false</bool>
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
@@ -239,8 +254,8 @@
      <widget class="QLabel" name="lblAngIncDec">
       <property name="geometry">
        <rect>
-        <x>35</x>
-        <y>270</y>
+        <x>25</x>
+        <y>380</y>
         <width>120</width>
         <height>20</height>
        </rect>
@@ -252,9 +267,9 @@
      <widget class="QSlider" name="sldAngIncDecValue">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>290</y>
-        <width>251</width>
+        <x>10</x>
+        <y>400</y>
+        <width>241</width>
         <height>22</height>
        </rect>
       </property>
@@ -264,6 +279,9 @@
       <property name="maximum">
        <number>45</number>
       </property>
+      <property name="tracking">
+       <bool>false</bool>
+      </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
@@ -271,8 +289,8 @@
      <widget class="QLabel" name="lblAngIncDecValue">
       <property name="geometry">
        <rect>
-        <x>160</x>
-        <y>270</y>
+        <x>150</x>
+        <y>380</y>
         <width>21</width>
         <height>20</height>
        </rect>
@@ -281,436 +299,491 @@
        <string>1</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lEditAngle6">
+     <widget class="QGroupBox" name="gBoxJoints">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>230</y>
-        <width>50</width>
-        <height>21</height>
+        <x>10</x>
+        <y>10</y>
+        <width>251</width>
+        <height>201</height>
        </rect>
       </property>
-      <property name="text">
-       <string>0</string>
+      <property name="title">
+       <string/>
       </property>
+      <widget class="QLineEdit" name="lEditAngle6">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>170</y>
+         <width>50</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pbTheta6_dec">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>170</y>
+         <width>50</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>-</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pbTheta4_inc">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>110</y>
+         <width>50</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>+</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pbTheta4_dec">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>110</y>
+         <width>50</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>-</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_t4">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>110</y>
+         <width>20</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>20</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>θ4</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pbTheta5_dec">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>140</y>
+         <width>50</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>-</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lEditAngle5">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>140</y>
+         <width>50</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lEditAngle4">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>110</y>
+         <width>50</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pbTheta6_inc">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>170</y>
+         <width>50</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>+</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pbTheta5_inc">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>140</y>
+         <width>50</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>+</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_t6">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>170</y>
+         <width>20</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>20</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>θ6</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_t5">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>140</y>
+         <width>20</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>20</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>θ5</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pbTheta3_dec">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>70</y>
+         <width>50</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>-</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_t3">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>70</y>
+         <width>20</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>20</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>θ3</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pbTheta3_inc">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>70</y>
+         <width>50</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>+</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lEditAngle1">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>50</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pbTheta2_inc">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>40</y>
+         <width>50</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>+</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pbTheta1_dec">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>10</y>
+         <width>50</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>-</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pbTheta1_inc">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>10</y>
+         <width>50</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>+</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_t2">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>40</y>
+         <width>20</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>20</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>θ2</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_t1">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>10</y>
+         <width>20</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>20</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>θ1</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lEditAngle3">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>70</y>
+         <width>50</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lEditAngle2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>40</y>
+         <width>50</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pbTheta2_dec">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>40</y>
+         <width>50</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>-</string>
+       </property>
+      </widget>
      </widget>
-     <widget class="QPushButton" name="pbTheta2_dec">
+     <widget class="QPushButton" name="pbReadCurrAng">
       <property name="geometry">
        <rect>
-        <x>200</x>
-        <y>90</y>
-        <width>50</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>50</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>-</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lEditAngle1">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>60</y>
-        <width>50</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>0</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lEditAngle5">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>200</y>
-        <width>50</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>0</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pbTheta1_inc">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>60</y>
-        <width>50</width>
-        <height>23</height>
+        <x>10</x>
+        <y>220</y>
+        <width>61</width>
+        <height>51</height>
        </rect>
       </property>
       <property name="sizePolicy">
-       <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+       <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
-      <property name="maximumSize">
-       <size>
-        <width>50</width>
-        <height>16777215</height>
-       </size>
-      </property>
       <property name="text">
-       <string>+</string>
+       <string> Read
+current
+location</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lEditAngle4">
+     <widget class="QPushButton" name="pbMoveNewAngVal">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>170</y>
-        <width>50</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>0</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pbTheta3_inc">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>120</y>
-        <width>50</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>50</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>+</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lEditAngle3">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>120</y>
-        <width>50</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>0</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lEditAngle2">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>90</y>
-        <width>50</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>0</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pbTheta4_inc">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>170</y>
-        <width>50</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>50</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>+</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pbTheta6_dec">
-      <property name="geometry">
-       <rect>
-        <x>200</x>
-        <y>230</y>
-        <width>50</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>50</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>-</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pbTheta3_dec">
-      <property name="geometry">
-       <rect>
-        <x>200</x>
-        <y>120</y>
-        <width>50</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>50</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>-</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pbTheta6_inc">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>230</y>
-        <width>50</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>50</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>+</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pbTheta2_inc">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>90</y>
-        <width>50</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>50</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>+</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pbTheta1_dec">
-      <property name="geometry">
-       <rect>
-        <x>200</x>
-        <y>60</y>
-        <width>50</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>50</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>-</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pbTheta4_dec">
-      <property name="geometry">
-       <rect>
-        <x>200</x>
-        <y>170</y>
-        <width>50</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>50</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>-</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pbTheta5_dec">
-      <property name="geometry">
-       <rect>
-        <x>200</x>
-        <y>200</y>
-        <width>50</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>50</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>-</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pbTheta5_inc">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>200</y>
-        <width>50</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>50</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>+</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="lbl_t6">
-      <property name="geometry">
-       <rect>
-        <x>110</x>
-        <y>230</y>
-        <width>20</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>20</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>θ6</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="lbl_t3">
-      <property name="geometry">
-       <rect>
-        <x>110</x>
-        <y>120</y>
-        <width>20</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>20</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>θ3</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="lbl_t4">
-      <property name="geometry">
-       <rect>
-        <x>110</x>
-        <y>170</y>
-        <width>20</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>20</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>θ4</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="lbl_t2">
-      <property name="geometry">
-       <rect>
-        <x>110</x>
-        <y>90</y>
-        <width>20</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>20</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>θ2</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="lbl_t1">
-      <property name="geometry">
-       <rect>
-        <x>110</x>
-        <y>60</y>
-        <width>20</width>
-        <height>23</height>
+        <x>10</x>
+        <y>280</y>
+        <width>61</width>
+        <height>51</height>
        </rect>
       </property>
       <property name="sizePolicy">
-       <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+       <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
-      <property name="maximumSize">
-       <size>
-        <width>20</width>
-        <height>16777215</height>
-       </size>
-      </property>
       <property name="text">
-       <string>θ1</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="lbl_t5">
-      <property name="geometry">
-       <rect>
-        <x>110</x>
-        <y>200</y>
-        <width>20</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>20</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>θ5</string>
+       <string> Move
+to new
+values</string>
       </property>
      </widget>
     </widget>
@@ -718,509 +791,11 @@
      <attribute name="title">
       <string>Cart</string>
      </attribute>
-     <widget class="QLineEdit" name="lEditCart6">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>230</y>
-        <width>50</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>0</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lEditCart1">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>60</y>
-        <width>50</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>0</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lEditCart4">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>170</y>
-        <width>50</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>0</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lEditCart3">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>120</y>
-        <width>50</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>0</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lEditCart2">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>90</y>
-        <width>50</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>0</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lEditCart5">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>200</y>
-        <width>50</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>0</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="lbl_z">
-      <property name="geometry">
-       <rect>
-        <x>110</x>
-        <y>226</y>
-        <width>20</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>20</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>z</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="lbl_x">
-      <property name="geometry">
-       <rect>
-        <x>110</x>
-        <y>170</y>
-        <width>20</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>20</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>x</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="lbl_Y">
-      <property name="geometry">
-       <rect>
-        <x>110</x>
-        <y>90</y>
-        <width>20</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>20</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>Y</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="lbl_y">
-      <property name="geometry">
-       <rect>
-        <x>110</x>
-        <y>200</y>
-        <width>20</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>20</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>y</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="lbl_X">
-      <property name="geometry">
-       <rect>
-        <x>110</x>
-        <y>60</y>
-        <width>20</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>20</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>X</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="lbl_Z">
-      <property name="geometry">
-       <rect>
-        <x>110</x>
-        <y>120</y>
-        <width>20</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>20</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>Z</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pbCart6_inc">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>230</y>
-        <width>50</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>50</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>40</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>+</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pbCart2_inc">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>90</y>
-        <width>50</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>50</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>40</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>+</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pbCart1_inc">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>60</y>
-        <width>50</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>50</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>40</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>+</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pbCart3_inc">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>120</y>
-        <width>50</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>50</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>40</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>+</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pbCart4_inc">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>170</y>
-        <width>50</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>50</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>40</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>+</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pbCart5_inc">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>200</y>
-        <width>50</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>50</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>40</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>+</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pbCart6_dec">
-      <property name="geometry">
-       <rect>
-        <x>200</x>
-        <y>230</y>
-        <width>50</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>50</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>40</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>-</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pbCart5_dec">
-      <property name="geometry">
-       <rect>
-        <x>200</x>
-        <y>200</y>
-        <width>50</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>50</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>40</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>-</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pbCart3_dec">
-      <property name="geometry">
-       <rect>
-        <x>200</x>
-        <y>120</y>
-        <width>50</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>50</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>40</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>-</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pbCart1_dec">
-      <property name="geometry">
-       <rect>
-        <x>200</x>
-        <y>60</y>
-        <width>50</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>50</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>40</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>-</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pbCart2_dec">
-      <property name="geometry">
-       <rect>
-        <x>200</x>
-        <y>90</y>
-        <width>50</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>50</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>40</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>-</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pbCart4_dec">
-      <property name="geometry">
-       <rect>
-        <x>200</x>
-        <y>170</y>
-        <width>50</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>50</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>40</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>-</string>
-      </property>
-     </widget>
      <widget class="QSlider" name="sldCartSpeedValue">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>30</y>
+        <x>10</x>
+        <y>360</y>
         <width>241</width>
         <height>22</height>
        </rect>
@@ -1229,7 +804,13 @@
        <number>1</number>
       </property>
       <property name="maximum">
-       <number>1000</number>
+       <number>500</number>
+      </property>
+      <property name="value">
+       <number>150</number>
+      </property>
+      <property name="tracking">
+       <bool>false</bool>
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
@@ -1238,8 +819,8 @@
      <widget class="QLabel" name="lblCartIncDecValue">
       <property name="geometry">
        <rect>
-        <x>180</x>
-        <y>270</y>
+        <x>170</x>
+        <y>380</y>
         <width>21</width>
         <height>20</height>
        </rect>
@@ -1251,9 +832,9 @@
      <widget class="QSlider" name="sldCartIncDecValue">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>290</y>
-        <width>251</width>
+        <x>10</x>
+        <y>400</y>
+        <width>241</width>
         <height>22</height>
        </rect>
       </property>
@@ -1261,7 +842,10 @@
        <number>1</number>
       </property>
       <property name="maximum">
-       <number>25</number>
+       <number>50</number>
+      </property>
+      <property name="tracking">
+       <bool>false</bool>
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
@@ -1270,21 +854,21 @@
      <widget class="QLabel" name="lblCartSpeedValue">
       <property name="geometry">
        <rect>
-        <x>140</x>
-        <y>10</y>
+        <x>130</x>
+        <y>340</y>
         <width>21</width>
         <height>20</height>
        </rect>
       </property>
       <property name="text">
-       <string>1</string>
+       <string>150</string>
       </property>
      </widget>
      <widget class="QLabel" name="lblCartIncDec">
       <property name="geometry">
        <rect>
-        <x>35</x>
-        <y>270</y>
+        <x>25</x>
+        <y>380</y>
         <width>141</width>
         <height>20</height>
        </rect>
@@ -1296,8 +880,8 @@
      <widget class="QLabel" name="lblCartSpeed">
       <property name="geometry">
        <rect>
-        <x>40</x>
-        <y>10</y>
+        <x>30</x>
+        <y>340</y>
         <width>91</width>
         <height>20</height>
        </rect>
@@ -1306,13 +890,566 @@
        <string>Cartesian speed  =</string>
       </property>
      </widget>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>251</width>
+        <height>201</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QLineEdit" name="lEditCart1">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>50</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pbCart1_dec">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>10</y>
+         <width>50</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>50</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>40</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>-</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_X">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>10</y>
+         <width>20</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>20</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>X</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pbCart1_inc">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>10</y>
+         <width>50</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>50</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>40</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>+</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_Y">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>40</y>
+         <width>20</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>20</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Y</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pbCart2_inc">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>40</y>
+         <width>50</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>50</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>40</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>+</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pbCart2_dec">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>40</y>
+         <width>50</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>50</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>40</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>-</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lEditCart2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>40</y>
+         <width>50</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pbCart3_dec">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>70</y>
+         <width>50</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>50</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>40</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>-</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_Z">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>70</y>
+         <width>20</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>20</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Z</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pbCart3_inc">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>70</y>
+         <width>50</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>50</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>40</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>+</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lEditCart3">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>70</y>
+         <width>50</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lEditCart6">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>170</y>
+         <width>50</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_x">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>110</y>
+         <width>20</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>20</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>x</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pbCart5_dec">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>140</y>
+         <width>50</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>50</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>40</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>-</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pbCart6_inc">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>170</y>
+         <width>50</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>50</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>40</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>+</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_y">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>140</y>
+         <width>20</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>20</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>y</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pbCart6_dec">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>170</y>
+         <width>50</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>50</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>40</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>-</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lEditCart4">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>110</y>
+         <width>50</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_z">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>166</y>
+         <width>20</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>20</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>z</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pbCart4_dec">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>110</y>
+         <width>50</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>50</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>40</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>-</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pbCart4_inc">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>110</y>
+         <width>50</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>50</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>40</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>+</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pbCart5_inc">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>140</y>
+         <width>50</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>50</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>40</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>+</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lEditCart5">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>140</y>
+         <width>50</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QPushButton" name="pbReadCurrCart">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>220</y>
+        <width>61</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text">
+       <string> Read
+current
+location</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pbMoveNewCartVal">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>280</y>
+        <width>61</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text">
+       <string> Move
+to new
+values</string>
+      </property>
+     </widget>
     </widget>
    </widget>
    <widget class="QLabel" name="lblAngle1">
     <property name="geometry">
      <rect>
       <x>560</x>
-      <y>400</y>
+      <y>480</y>
       <width>50</width>
       <height>23</height>
      </rect>
@@ -1328,7 +1465,7 @@
     <property name="geometry">
      <rect>
       <x>610</x>
-      <y>400</y>
+      <y>480</y>
       <width>50</width>
       <height>23</height>
      </rect>
@@ -1344,7 +1481,7 @@
     <property name="geometry">
      <rect>
       <x>660</x>
-      <y>400</y>
+      <y>480</y>
       <width>50</width>
       <height>23</height>
      </rect>
@@ -1360,7 +1497,7 @@
     <property name="geometry">
      <rect>
       <x>710</x>
-      <y>400</y>
+      <y>480</y>
       <width>50</width>
       <height>23</height>
      </rect>
@@ -1376,7 +1513,7 @@
     <property name="geometry">
      <rect>
       <x>760</x>
-      <y>400</y>
+      <y>480</y>
       <width>50</width>
       <height>23</height>
      </rect>
@@ -1392,7 +1529,7 @@
     <property name="geometry">
      <rect>
       <x>810</x>
-      <y>400</y>
+      <y>480</y>
       <width>50</width>
       <height>23</height>
      </rect>
@@ -1408,7 +1545,7 @@
     <property name="geometry">
      <rect>
       <x>560</x>
-      <y>430</y>
+      <y>510</y>
       <width>50</width>
       <height>23</height>
      </rect>
@@ -1430,7 +1567,7 @@
     <property name="geometry">
      <rect>
       <x>610</x>
-      <y>430</y>
+      <y>510</y>
       <width>50</width>
       <height>23</height>
      </rect>
@@ -1458,7 +1595,7 @@
     <property name="geometry">
      <rect>
       <x>660</x>
-      <y>430</y>
+      <y>510</y>
       <width>50</width>
       <height>23</height>
      </rect>
@@ -1474,7 +1611,7 @@
     <property name="geometry">
      <rect>
       <x>710</x>
-      <y>430</y>
+      <y>510</y>
       <width>50</width>
       <height>23</height>
      </rect>
@@ -1490,7 +1627,7 @@
     <property name="geometry">
      <rect>
       <x>760</x>
-      <y>430</y>
+      <y>510</y>
       <width>50</width>
       <height>23</height>
      </rect>
@@ -1506,7 +1643,7 @@
     <property name="geometry">
      <rect>
       <x>810</x>
-      <y>430</y>
+      <y>510</y>
       <width>50</width>
       <height>23</height>
      </rect>
@@ -1528,9 +1665,9 @@
     <property name="geometry">
      <rect>
       <x>510</x>
-      <y>410</y>
-      <width>47</width>
-      <height>13</height>
+      <y>480</y>
+      <width>50</width>
+      <height>23</height>
      </rect>
     </property>
     <property name="text">
@@ -1541,9 +1678,9 @@
     <property name="geometry">
      <rect>
       <x>510</x>
-      <y>430</y>
-      <width>47</width>
-      <height>16</height>
+      <y>510</y>
+      <width>50</width>
+      <height>23</height>
      </rect>
     </property>
     <property name="text">
@@ -1603,8 +1740,8 @@
    <widget class="QPushButton" name="pbMove">
     <property name="geometry">
      <rect>
-      <x>760</x>
-      <y>580</y>
+      <x>790</x>
+      <y>320</y>
       <width>90</width>
       <height>23</height>
      </rect>
@@ -1622,8 +1759,8 @@
    <widget class="QPushButton" name="pbResetError">
     <property name="geometry">
      <rect>
-      <x>760</x>
-      <y>490</y>
+      <x>790</x>
+      <y>350</y>
       <width>90</width>
       <height>23</height>
      </rect>
@@ -1680,7 +1817,7 @@
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
   </widget>
@@ -1705,12 +1842,12 @@ p, li { white-space: pre-wrap; }
    <slot>setNum(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>672</x>
-     <y>382</y>
+     <x>674</x>
+     <y>453</y>
     </hint>
     <hint type="destinationlabel">
-     <x>673</x>
-     <y>365</y>
+     <x>675</x>
+     <y>433</y>
     </hint>
    </hints>
   </connection>
@@ -1721,12 +1858,12 @@ p, li { white-space: pre-wrap; }
    <slot>setNum(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>637</x>
-     <y>118</y>
+     <x>639</x>
+     <y>413</y>
     </hint>
     <hint type="destinationlabel">
-     <x>658</x>
-     <y>108</y>
+     <x>660</x>
+     <y>393</y>
     </hint>
    </hints>
   </connection>
@@ -1737,12 +1874,12 @@ p, li { white-space: pre-wrap; }
    <slot>setNum(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>653</x>
-     <y>115</y>
+     <x>655</x>
+     <y>413</y>
     </hint>
     <hint type="destinationlabel">
-     <x>653</x>
-     <y>106</y>
+     <x>655</x>
+     <y>393</y>
     </hint>
    </hints>
   </connection>
@@ -1753,12 +1890,12 @@ p, li { white-space: pre-wrap; }
    <slot>setNum(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>673</x>
-     <y>377</y>
+     <x>675</x>
+     <y>453</y>
     </hint>
     <hint type="destinationlabel">
-     <x>694</x>
-     <y>365</y>
+     <x>696</x>
+     <y>433</y>
     </hint>
    </hints>
   </connection>

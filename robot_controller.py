@@ -12,19 +12,16 @@ class RobotController():
     #Initial set up for homing procedure
     def __init__(self):
         self.mecarobot = MecaRobot(MECA_IP, MECA_PORT)
-        self.mecarobot.run('SetJointVel',25, True)
+        self.mecarobot.run('set_joint_vel',25, True)
 
     #......................GUI commands
 
-    # Moves robot to new coordinates Move push button
-    def move(self, t1, t2, t3, t4, t5, t6):
-        self.mecarobot.run('MoveJoints', [t1, t2, t3, t4, t5, t6])
 
     # Moves robot to Home point using the Up push button
     def up(self):
         self.mecarobot.run('MoveJoints', home)
 
-    # Moves robot to away1Home point using the Down push button
+    # Moves robot to away1 point using the Down push button
     def down(self):
         self.mecarobot.run('MoveJoints', away1)
 
@@ -39,27 +36,27 @@ class RobotController():
         self.mecarobot.log(handler)
 
 
-
     #......................MECADEMIC Motion commands
-
+    # JOINTS
     def move_joints(self, t1, t2, t3, t4, t5, t6):
         self.mecarobot.run('MoveJoints', [t1, t2, t3, t4, t5, t6])
 
     def move_jointsDelta(self, t1, t2, t3, t4, t5, t6):
         self.mecarobot.run('MoveJointsDelta', [t1, t2, t3, t4, t5, t6])
 
-    def move_linear(self, x, y, z, a, b, g):
+    def set_joint_vel(self, AngSpeed):
+        self.mecarobot.run('SetJointVel',AngSpeed)
+
+    # LINEAR
+    def move_lin(self, x, y, z, a, b, g):
         self.mecarobot.run('MoveLin', [x, y, z, a, b, g])
 
     def move_linearDelta(self, x, y, z, a, b, g):
         self.mecarobot.run('SetMoveLinDeltaRef', 0)
         self.mecarobot.run('MoveLinDelta', [x, y, z, a, b, g])
 
-    def SetJointVel(self,AngSpeed):
-        self.mecarobot.run('SetJointVel',AngSpeed, True)
-
-    def SetJointVel(self,AngSpeed):
-        self.mecarobot.run('SetJointVel',AngSpeed, True)
+    def set_cart_lin_vel(self,LinSpeed):
+        self.mecarobot.run('SetCartLinVel',LinSpeed)
 
 
     #......................MECADEMIC Request commands

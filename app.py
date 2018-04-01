@@ -1,10 +1,10 @@
 from functools import partial
 from design import Ui_MainWindow
 from robot_controller import RobotController
-from PyQt5.QtWidgets import (QLineEdit,QSlider)
+from PyQt5.QtWidgets import (QLineEdit,QSlider,QTableWidgetItem)
 
 MoveJoint_var = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-
+MoveLin_var = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 
 class RobotApp(Ui_MainWindow):
 
@@ -23,8 +23,12 @@ class RobotApp(Ui_MainWindow):
         self.pbPauseMotion.clicked.connect(self.pbPauseMotion_clicked)
         self.pbResumeMotion.clicked.connect(self.pbResumeMotion_clicked)
         self.pbClearMotion.clicked.connect(self.pbClearMotion_clicked)
-        self.pbMove.clicked.connect(self.pbMove_clicked)
         self.sldAngSpeedValue.valueChanged.connect(self.joint_speed_slided)
+        self.sldCartSpeedValue.valueChanged.connect(self.cart_speed_slided)
+        self.pbReadCurrAng.clicked.connect(self.pbReadCurrAng_clicked)
+        self.pbMoveNewAngVal.clicked.connect(self.pbMoveNewAngVal_clicked)
+        self.pbReadCurrCart.clicked.connect(self.pbReadCurrCart_clicked)
+        self.pbMoveNewCartVal.clicked.connect(self.pbMoveNewCartVal_clicked)
 
         for i in range(0, 6):
             pbTheta_inc = getattr(self, f'pbTheta{i+1}_inc')
@@ -55,24 +59,29 @@ class RobotApp(Ui_MainWindow):
         MoveJoint_var[5] = float(self.lblAngle6.text())
 
     def pbTheta_inc_clicked(self, index):
-        print("inc", MoveJoint_var)
         self.move_joints(index, 1)
 
     def pbTheta_dec_clicked(self, index):
-        print("dec", MoveJoint_var)
         self.move_joints(index, -1)
 
+    # Read the actual position values
+    def pbReadCurrAng_clicked(self):
+        self.lEditAngle1.setText (self.lblAngle1.text())
+        self.lEditAngle2.setText (self.lblAngle2.text())
+        self.lEditAngle3.setText (self.lblAngle3.text())
+        self.lEditAngle4.setText (self.lblAngle4.text())
+        self.lEditAngle5.setText (self.lblAngle5.text())
+        self.lEditAngle6.setText (self.lblAngle6.text())
 
-   # pbMove Takes the values of lEditAngle and executes a motion to those value
-    #        uses MoveJoint_var array for calculations
-    def pbMove_clicked(self):
+    # Moves to the new values
+    def pbMoveNewAngVal_clicked(self):
         MoveJoint_var[0] = float(self.lEditAngle1.text())
         MoveJoint_var[1] = float(self.lEditAngle2.text())
         MoveJoint_var[2] = float(self.lEditAngle3.text())
         MoveJoint_var[3] = float(self.lEditAngle4.text())
         MoveJoint_var[4] = float(self.lEditAngle5.text())
         MoveJoint_var[5] = float(self.lEditAngle6.text())
-        self.robot_controller.move(*MoveJoint_var)
+        self.robot_controller.move_joints(*MoveJoint_var)
         self.lEditAngle1.setText("0")
         self.lEditAngle2.setText("0")
         self.lEditAngle3.setText("0")
@@ -80,16 +89,16 @@ class RobotApp(Ui_MainWindow):
         self.lEditAngle5.setText("0")
         self.lEditAngle6.setText("0")
 
-    def move_joints(self, index, direction):
-        print ("Jogging axis")
-        angles = [0, 0, 0, 0, 0, 0]
-        angles[index] = direction * self.sldAngIncDecValue.value()
-        self.robot_controller.move_jointsDelta(*angles)
-
-
+    # Set speed value for joint motion
     def joint_speed_slided(self):
         AngSpeed = self.sldAngSpeedValue.value()
-        self.robot_controller.SetJointVel(AngSpeed)
+        self.robot_controller.set_joint_vel(int(AngSpeed))
+
+    # Execute joint motion
+    def move_joints(self, index, direction):
+         angles = [0, 0, 0, 0, 0, 0]
+         angles[index] = direction * self.sldAngIncDecValue.value()
+         self.robot_controller.move_jointsDelta(*angles)
 
     #...............................................................................
     #
@@ -104,15 +113,52 @@ class RobotApp(Ui_MainWindow):
     def pbCart_dec_clicked(self, index):
         self.move_linear(index, -1)
 
+
+    # Set speed value for linear motions
+    def cart_speed_slided(self):
+        CartSpeed = self.sldCartSpeedValue.value()
+        self.robot_controller.set_cart_lin_vel(CartSpeed)
+
+    # Execute linear motion
     def move_linear(self, index, direction):
         coords = [0, 0, 0, 0, 0, 0]
         coords[index] = direction * self.sldCartIncDecValue.value()
         self.robot_controller.move_linearDelta(*coords)
 
+    # Read the actual position values
+    def pbReadCurrCart_clicked(self):
+        self.lEditCart1.setText (self.lblCart1.text())
+        self.lEditCart2.setText (self.lblCart2.text())
+        self.lEditCart3.setText (self.lblCart3.text())
+        self.lEditCart4.setText (self.lblCart4.text())
+        self.lEditCart5.setText (self.lblCart5.text())
+        self.lEditCart6.setText (self.lblCart6.text())
 
+    # Moves to the new values
+    def pbMoveNewCartVal_clicked(self):
+        MoveLin_var[0] = float(self.lEditCart1.text())
+        MoveLin_var[1] = float(self.lEditCart2.text())
+        MoveLin_var[2] = float(self.lEditCart3.text())
+        MoveLin_var[3] = float(self.lEditCart4.text())
+        MoveLin_var[4] = float(self.lEditCart5.text())
+        MoveLin_var[5] = float(self.lEditCart6.text())
+        self.robot_controller.move_lin(*MoveLin_var)
+        self.lEditCart1.setText("0")
+        self.lEditCart2.setText("0")
+        self.lEditCart3.setText("0")
+        self.lEditCart4.setText("0")
+        self.lEditCart5.setText("0")
+        self.lEditCart6.setText("0")
 
-
-
+        self.tableWidget.setColumnWidth(1,50)
+        self.tableWidget.setColumnWidth(2,50)
+        self.tableWidget.setColumnWidth(3,50)
+        self.tableWidget.setColumnWidth(4,50)
+        self.tableWidget.setColumnWidth(5,50)
+        self.tableWidget.setColumnWidth(6,50)
+        item = QTableWidgetItem()
+        item.setText("100.000")
+        self.tableWidget.setItem(3,1,item)
 
     #...............................................................................
     #
@@ -172,7 +218,7 @@ class RobotApp(Ui_MainWindow):
         self.robot_controller.clear_motion()
 
     def pbPauseMotion_clicked(self):
-            self.robot_controller.pause_motion()
+         self.robot_controller.pause_motion()
 
     def pbResumeMotion_clicked(self):
-            self.robot_controller.resume_motion()
+         self.robot_controller.resume_motion()
